@@ -1,492 +1,476 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heróis da Internet - Espaço Amigo e Seguro</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Fredoka & Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        fredoka: ['Fredoka', 'sans-serif'],
-                        inter: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brandPink: '#FF6584',
-                        brandYellow: '#FFD166',
-                        brandBlue: '#4EA8DE',
-                        brandGreen: '#06D6A0',
-                        brandPurple: '#7209B7',
-                        brandDark: '#2B2D42'
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heróis da Internet - Espaço Amigo e Seguro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fredoka: ['Fredoka', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brandPink: '#FF6584',
+            brandYellow: '#FFD166',
+            brandBlue: '#4EA8DE',
+            brandGreen: '#06D6A0',
+            brandPurple: '#7209B7',
+            brandDark: '#2B2D42'
+          }
         }
-    </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8F9FA;
-            color: #2B2D42;
-        }
-        h1, h2, h3, .font-title {
-            font-family: 'Fredoka', sans-serif;
-        }
-        .blob-bg {
-            background: linear-gradient(135deg, #FFD166 0%, #FF6584 100%);
-        }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8F9FA;
+      color: #2B2D42;
+    }
+    h1, h2, h3, .font-title {
+      font-family: 'Fredoka', sans-serif;
+    }
+    .blob-bg {
+      background: linear-gradient(135deg, #FFD166 0%, #FF6584 100%);
+    }
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body class="bg-[#F4F9F9] min-h-screen flex flex-col selection:bg-brandYellow selection:text-brandDark">
 
-    <!-- Navegação -->
-    <header class="bg-white sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
-                <div class="w-12 h-12 rounded-2xl bg-brandBlue flex items-center justify-center text-white text-2xl shadow-md">
-                    <i class="fa-solid fa-shield-cat"></i>
-                </div>
-                <div>
-                    <span class="text-2xl font-bold font-title text-brandPurple tracking-wide">Heróis da Web</span>
-                    <span class="block text-xs text-gray-500 font-medium">Respeito & Conexão Segura</span>
-                </div>
-            </div>
+<header class="bg-white sticky top-0 z-50 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+      <div class="w-12 h-12 rounded-2xl bg-brandBlue flex items-center justify-center text-white text-2xl shadow-md">
+        <i class="fa-solid fa-shield-cat"></i>
+      </div>
+      <div>
+        <span class="text-2xl font-bold font-title text-brandPurple tracking-wide">Heróis da Web</span>
+        <span class="block text-xs text-gray-500 font-medium">Respeito & Conexão Segura</span>
+      </div>
+    </div>
 
-            <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-full font-semibold text-brandPurple bg-purple-50 transition">Início</button>
-                <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-full font-semibold text-gray-600 hover:bg-gray-100 transition">O que é Bullying?</button>
-                <button onclick="switchTab('safety')" id="nav-safety" class="nav-btn px-4 py-2 rounded-full font-semibold text-gray-600 hover:bg-gray-100 transition">Zona de Segurança</button>
-                <button onclick="switchTab('games')" id="nav-games" class="nav-btn px-4 py-2 rounded-full font-semibold text-brandPink bg-pink-50 hover:bg-pink-100 transition flex items-center gap-2">
-                    <i class="fa-solid fa-gamepad"></i> Mini-Jogos
-                </button>
-            </nav>
+    <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+      <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-full font-semibold text-brandPurple bg-purple-50 transition">Início</button>
+      <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-full font-semibold text-gray-600 hover:bg-gray-100 transition">O que é Bullying?</button>
+      <button onclick="switchTab('safety')" id="nav-safety" class="nav-btn px-4 py-2 rounded-full font-semibold text-gray-600 hover:bg-gray-100 transition">Zona de Segurança</button>
+      <button onclick="switchTab('games')" id="nav-games" class="nav-btn px-4 py-2 rounded-full font-semibold text-brandPink bg-pink-50 hover:bg-pink-100 transition flex items-center gap-2">
+        <i class="fa-solid fa-gamepad"></i> Mini-Jogos
+      </button>
+    </nav>
 
-            <!-- Botão Menu Mobile -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700 p-2 focus:outline-none">
-                <i class="fa-solid fa-bars" id="menu-icon"></i>
-            </button>
-        </div>
+    <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700 p-2 focus:outline-none">
+      <i class="fa-solid fa-bars" id="menu-icon"></i>
+    </button>
+  </div>
 
-        <!-- Menu Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2">
-            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-brandPurple bg-purple-50">Início</button>
-            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-gray-700 hover:bg-gray-100">O que é Bullying?</button>
-            <button onclick="switchTab('safety'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-gray-700 hover:bg-gray-100">Zona de Segurança</button>
-            <button onclick="switchTab('games'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-brandPink bg-pink-50 flex items-center gap-2">
-                <i class="fa-solid fa-gamepad"></i> Mini-Jogos & Desafios
-            </button>
-        </div>
-    </header>
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2">
+    <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-brandPurple bg-purple-50">Início</button>
+    <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-gray-700 hover:bg-gray-100">O que é Bullying?</button>
+    <button onclick="switchTab('safety'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-gray-700 hover:bg-gray-100">Zona de Segurança</button>
+    <button onclick="switchTab('games'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg font-semibold text-brandPink bg-pink-50 flex items-center gap-2">
+      <i class="fa-solid fa-gamepad"></i> Mini-Jogos & Desafios
+    </button>
+  </div>
+</header>
 
-    <!-- Conteúdo Principal -->
-    <main class="flex-grow">
+<main class="flex-grow">
 
-        <!-- ABA 1: INÍCIO -->
-        <section id="tab-home" class="tab-content py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-center lg:text-left">
+  <section id="tab-home" class="tab-content py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 text-center lg:text-left">
                     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 text-yellow-800 font-semibold text-sm">
                         <i class="fa-solid fa-star text-yellow-500"></i> Espaço Educativo & Divertido
                     </span>
-                    <h1 class="text-4xl sm:text-6xl font-bold font-title text-brandDark leading-tight">
-                        Navegue com <span class="text-brandBlue">Respeito</span> e <span class="text-brandPink">Alegria!</span>
-                    </h1>
-                    <p class="text-lg text-gray-600 leading-relaxed font-normal">
-                        Bem-vindo ao nosso portal! Aqui você aprende a identificar o bullying, descobre como se proteger na internet e percebe que a gentileza é o nosso melhor superpoder, seja na escola ou nas redes sociais.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <button onclick="switchTab('games')" class="w-full sm:w-auto px-8 py-4 bg-brandPink text-white font-bold font-title rounded-2xl shadow-lg hover:bg-pink-600 transition flex items-center justify-center gap-3 text-lg">
-                            <i class="fa-solid fa-dice text-xl"></i> Jogar & Aprender
-                        </button>
-                        <button onclick="switchTab('about')" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-brandBlue text-brandBlue font-bold font-title rounded-2xl shadow-sm hover:bg-blue-50 transition flex items-center justify-center gap-3 text-lg">
-                            <i class="fa-solid fa-book-open text-xl"></i> Saiba Mais
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Ilustração / Card Principal Animado -->
-                <div class="relative flex justify-center">
-                    <div class="w-full max-w-md bg-gradient-to-tr from-brandBlue to-brandGreen rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden card-hover">
-                        <div class="absolute -right-10 -bottom-10 opacity-20 text-9xl">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div class="relative z-10 space-y-6">
-                            <div class="w-16 h-16 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center text-3xl">
-                                <i class="fa-solid fa-heart-pulse"></i>
-                            </div>
-                            <h3 class="text-3xl font-bold font-title">Missão Digital</h3>
-                            <p class="text-white/90 leading-relaxed">
-                                "O bullying e o cyberbullying machucam de verdade. Aprender a respeitar as diferenças é o primeiro passo para construirmos uma comunidade segura e feliz!"
-                            </p>
-                            <div class="pt-4 flex items-center gap-3 text-sm font-semibold bg-white/10 p-3 rounded-xl">
-                                <i class="fa-solid fa-users text-brandYellow text-xl"></i>
-                                <span>Criado por estudantes dedicados à segurança infantil</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blocos de Destaque -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover">
-                    <div class="w-14 h-14 bg-pink-100 text-brandPink rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-face-smile"></i>
-                    </div>
-                    <h3 class="text-xl font-bold font-title text-brandDark mb-3">Respeito às Diferenças</h3>
-                    <p class="text-gray-600">Cada pessoa é única e especial. O que nos torna diferentes é o que torna o mundo incrível!</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover">
-                    <div class="w-14 h-14 bg-blue-100 text-brandBlue rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-shield-cat"></i>
-                    </div>
-                    <h3 class="text-xl font-bold font-title text-brandDark mb-3">Segurança Digital</h3>
-                    <p class="text-gray-600">Dicas fáceis para cuidar das senhas, proteger seus dados e navegar de forma inteligente.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover">
-                    <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                    </div>
-                    <h3 class="text-xl font-bold font-title text-brandDark mb-3">Rede de Apoio</h3>
-                    <p class="text-gray-600">Saber a quem recorrer em momentos difíceis. Você nunca está sozinho(a)!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABA 2: O QUE É BULLYING E CYBERBULLYING -->
-        <section id="tab-about" class="tab-content hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brandBlue font-bold tracking-wider uppercase text-sm">Entendendo os Conceitos</span>
-                <h2 class="text-3xl sm:text-5xl font-bold font-title text-brandDark">O que é Bullying e Cyberbullying?</h2>
-                <p class="text-gray-600 text-lg">Vamos explicar de um jeito simples para você entender e saber identificar o que não é legal.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Card Bullying -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 bg-purple-100 text-brandPurple rounded-2xl flex items-center justify-center text-2xl font-bold">
-                                <i class="fa-solid fa-school"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold font-title text-brandDark">Bullying Escolar</h3>
-                                <span class="text-sm text-purple-600 font-semibold">Acontece no dia a dia presencial</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Bullying ocorre quando alguém sofre agressões físicas ou verbais repetidas vezes, de forma intencional, por parte de colegas. Exemplos: xingamentos, apelidos maldosos, exclusão proposital de brincadeiras e empurrões.
-                        </p>
-                    </div>
-                    <div class="bg-purple-50 p-4 rounded-2xl border border-purple-100 text-sm text-purple-900">
-                        <strong>Exemplo prático:</strong> Inventar um apelido chato para rir da aparência de um colega todos os dias na hora do recreio.
-                    </div>
-                </div>
-
-                <!-- Card Cyberbullying -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 bg-pink-100 text-brandPink rounded-2xl flex items-center justify-center text-2xl font-bold">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold font-title text-brandDark">Cyberbullying</h3>
-                                <span class="text-sm text-brandPink font-semibold">Acontece através de telas e internet</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            É o bullying que usa a tecnologia (celulares, redes sociais, jogos online). A grande diferença é que na internet a ofensa se espalha muito rápido, atinge muitas pessoas e pode ficar gravada para sempre.
-                        </p>
-                    </div>
-                    <div class="bg-pink-50 p-4 rounded-2xl border border-pink-100 text-sm text-pink-900">
-                        <strong>Exemplo prático:</strong> Mandar mensagens ofensivas em grupos de chat ou criar perfis falsos para zombar de alguém da escola.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Efeitos Emocionais -->
-            <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
-                <div class="max-w-3xl mx-auto text-center space-y-6">
-                    <h3 class="text-2xl sm:text-3xl font-bold font-title">Por que isso prejudica tanto?</h3>
-                    <p class="text-white/90 text-lg leading-relaxed">
-                        Tanto o bullying quanto o cyberbullying machucam o coração e a autoestima. Podem deixar a criança triste, com medo de ir para a escola, isolada dos amigos e sem vontade de brincar. Cuidar uns dos outros é um dever de todos!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABA 3: ZONA DE SEGURANÇA E DICAS -->
-        <section id="tab-safety" class="tab-content hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="text-brandGreen font-bold tracking-wider uppercase text-sm">Guia do Super Protetor</span>
-                <h2 class="text-3xl sm:text-5xl font-bold font-title text-brandDark">Zona de Segurança</h2>
-                <p class="text-gray-600 text-lg">Aprenda o passo a passo de como agir caso você ou um amigo passem por alguma situação de violência virtual.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Passo 1 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-green-100 text-brandGreen rounded-2xl flex items-center justify-center text-xl font-bold mb-4">1</div>
-                        <h3 class="text-xl font-bold font-title text-brandDark mb-2">Não Responda</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Se alguém te mandar uma mensagem ruim ou ofensiva, não revide e não responda com xingamentos. Isso evita alimentar a confusão.
-                        </p>
-                    </div>
-                    <div class="mt-6 text-brandGreen text-xs font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check"></i> Regra de Ouro
-                    </div>
-                </div>
-
-                <!-- Passo 2 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-blue-100 text-brandBlue rounded-2xl flex items-center justify-center text-xl font-bold mb-4">2</div>
-                        <h3 class="text-xl font-bold font-title text-brandDark mb-2">Salve as Provas</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Tire um print (captura de tela) da mensagem ofensiva ou peça para um adulto ajudar a guardar o registro caso seja necessário relatar.
-                        </p>
-                    </div>
-                    <div class="mt-6 text-brandBlue text-xs font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check"></i> Importante
-                    </div>
-                </div>
-
-                <!-- Passo 3 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">3</div>
-                        <h3 class="text-xl font-bold font-title text-brandDark mb-2">Bloqueie & Denuncie</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Use os recursos do aplicativo ou jogo para bloquear a pessoa agressora e use o botão de denúncia da plataforma.
-                        </p>
-                    </div>
-                    <div class="mt-6 text-yellow-600 text-xs font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check"></i> Ação Rápida
-                    </div>
-                </div>
-
-                <!-- Passo 4 -->
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-pink-100 text-brandPink rounded-2xl flex items-center justify-center text-xl font-bold mb-4">4</div>
-                        <h3 class="text-xl font-bold font-title text-brandDark mb-2">Conte a um Adulto</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Procure imediatamente seus pais, professores ou um adulto de confiança. Você não precisa passar por isso sozinho(a)!
-                        </p>
-                    </div>
-                    <div class="mt-6 text-brandPink text-xs font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check"></i> Apoio Seguro
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABA 4: MINI-JOGOS E DESAFIOS -->
-        <section id="tab-games" class="tab-content hidden py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8">
-            <div class="text-center space-y-4">
-                <span class="text-brandPink font-bold tracking-wider uppercase text-sm">Zona de Desafios</span>
-                <h2 class="text-3xl sm:text-5xl font-bold font-title text-brandDark">O que você faria nessa situação?</h2>
-                <p class="text-gray-600 text-lg">Teste suas escolhas em cenários do dia a dia e descubra como ser um verdadeiro herói digital!</p>
-            </div>
-
-            <!-- Quiz Container -->
-            <div id="quiz-container" class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border border-gray-100">
-                <div class="flex justify-between items-center mb-6 border-b pb-4">
-                    <span id="quiz-progress" class="font-bold text-brandPurple">Pergunta 1 de 3</span>
-                    <span id="quiz-score" class="font-bold text-brandGreen">Pontos: 0</span>
-                </div>
-
-                <div id="quiz-question-box" class="space-y-6">
-                    <h3 id="quiz-question-text" class="text-xl sm:text-2xl font-bold font-title text-brandDark">
-                        Carregando pergunta...
-                    </h3>
-                    <div id="quiz-options" class="grid grid-cols-1 gap-4">
-                        <!-- Opções injetadas por JS -->
-                    </div>
-                </div>
-
-                <!-- Feedback da resposta -->
-                <div id="quiz-feedback" class="hidden mt-6 p-6 rounded-2xl bg-gray-50 border space-y-4">
-                    <h4 id="feedback-title" class="text-xl font-bold font-title"></h4>
-                    <p id="feedback-desc" class="text-gray-600"></p>
-                    <button onclick="nextQuizQuestion()" class="px-6 py-3 bg-brandPurple text-white font-bold rounded-xl hover:bg-purple-700 transition">
-                        Próxima Situação <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Tela de Parabéns do Quiz -->
-            <div id="quiz-finished" class="hidden bg-white p-8 sm:p-12 rounded-3xl shadow-lg text-center space-y-6">
-                <div class="w-20 h-20 bg-green-100 text-brandGreen rounded-full flex items-center justify-center text-4xl mx-auto">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                <h3 class="text-3xl font-bold font-title text-brandDark">Parabéns, Super Herói!</h3>
-                <p id="final-score-text" class="text-lg text-gray-600">Você concluiu os desafios com sucesso e mostrou que entende tudo sobre respeito e segurança na internet!</p>
-                <button onclick="restartQuiz()" class="px-8 py-4 bg-brandPink text-white font-bold font-title rounded-2xl shadow-md hover:bg-pink-600 transition">
-                    Jogar Novamente <i class="fa-solid fa-rotate-right ml-2"></i>
-                </button>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="bg-white border-t mt-16 py-8 text-center text-gray-500 text-sm">
-        <div class="max-w-7xl mx-auto px-4 space-y-3">
-            <p class="font-title text-brandDark font-semibold text-base">Heróis da Web — Educação, Empatia & Segurança Digital</p>
-            <p>Projeto desenvolvido para conscientização de crianças, famílias e escolas contra o bullying e cyberbullying.</p>
-            <p class="text-xs text-gray-400">© 2026 Todos os direitos reservados.</p>
+        <h1 class="text-4xl sm:text-6xl font-bold font-title text-brandDark leading-tight">
+          Navegue com <span class="text-brandBlue">Respeito</span> e <span class="text-brandPink">Alegria!</span>
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed font-normal">
+          Bem-vindo ao nosso portal! Aqui você aprende a identificar o bullying, descobre como se proteger na internet e percebe que a gentileza é o nosso melhor superpoder, seja na escola ou nas redes sociais.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+          <button onclick="switchTab('games')" class="w-full sm:w-auto px-8 py-4 bg-brandPink text-white font-bold font-title rounded-2xl shadow-lg hover:bg-pink-600 transition flex items-center justify-center gap-3 text-lg">
+            <i class="fa-solid fa-dice text-xl"></i> Jogar & Aprender
+          </button>
+          <button onclick="switchTab('about')" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-brandBlue text-brandBlue font-bold font-title rounded-2xl shadow-sm hover:bg-blue-50 transition flex items-center justify-center gap-3 text-lg">
+            <i class="fa-solid fa-book-open text-xl"></i> Saiba Mais
+          </button>
         </div>
-    </footer>
+      </div>
 
-    <!-- Script de Interatividade -->
-    <script>
-        // Navegação por Abas
-        function switchTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(t => t.classList.add('hidden'));
+      <div class="relative flex justify-center">
+        <div class="w-full max-w-md bg-gradient-to-tr from-brandBlue to-brandGreen rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden card-hover">
+          <div class="absolute -right-10 -bottom-10 opacity-20 text-9xl">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="relative z-10 space-y-6">
+            <div class="w-16 h-16 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center text-3xl">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3 class="text-3xl font-bold font-title">Missão Digital</h3>
+            <p class="text-white/90 leading-relaxed">
+              "O bullying e o cyberbullying machucam de verdade. Aprender a respeitar as diferenças é o primeiro passo para construirmos uma comunidade segura e feliz!"
+            </p>
+            <div class="pt-4 flex items-center gap-3 text-sm font-semibold bg-white/10 p-3 rounded-xl">
+              <i class="fa-solid fa-users text-brandYellow text-xl"></i>
+              <span>Criado por estudantes dedicados à segurança infantil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover">
+        <div class="w-14 h-14 bg-pink-100 text-brandPink rounded-2xl flex items-center justify-center text-2xl mb-6">
+          <i class="fa-solid fa-face-smile"></i>
+        </div>
+        <h3 class="text-xl font-bold font-title text-brandDark mb-3">Respeito às Diferenças</h3>
+        <p class="text-gray-600">Cada pessoa é única e especial. O que nos torna diferentes é o que torna o mundo incrível!</p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover">
+        <div class="w-14 h-14 bg-blue-100 text-brandBlue rounded-2xl flex items-center justify-center text-2xl mb-6">
+          <i class="fa-solid fa-shield-cat"></i>
+        </div>
+        <h3 class="text-xl font-bold font-title text-brandDark mb-3">Segurança Digital</h3>
+        <p class="text-gray-600">Dicas fáceis para cuidar das senhas, proteger seus dados e navegar de forma inteligente.</p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover">
+        <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+        <h3 class="text-xl font-bold font-title text-brandDark mb-3">Rede de Apoio</h3>
+        <p class="text-gray-600">Saber a quem recorrer em momentos difíceis. Você nunca está sozinho(a)!</p>
+      </div>
+    </div>
+  </section>
 
-            // Atualizar classes dos botões desktop
-            const navButtons = document.querySelectorAll('.nav-btn');
-            navButtons.forEach(btn => {
-                btn.classList.remove('bg-purple-50', 'text-brandPurple');
-                btn.classList.add('text-gray-600', 'hover:bg-gray-100');
-            });
+  <section id="tab-about" class="tab-content hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <span class="text-brandBlue font-bold tracking-wider uppercase text-sm">Entendendo os Conceitos</span>
+      <h2 class="text-3xl sm:text-5xl font-bold font-title text-brandDark">O que é Bullying e Cyberbullying?</h2>
+      <p class="text-gray-600 text-lg">Vamos explicar de um jeito simples para você entender e saber identificar o que não é legal.</p>
+    </div>
 
-            if(tabId === 'home') {
-                const btn = document.getElementById('nav-home');
-                if(btn) { btn.classList.add('bg-purple-50', 'text-brandPurple'); btn.classList.remove('text-gray-600'); }
-            } else if(tabId === 'about') {
-                const btn = document.getElementById('nav-about');
-                if(btn) { btn.classList.add('bg-purple-50', 'text-brandPurple'); btn.classList.remove('text-gray-600'); }
-            } else if(tabId === 'safety') {
-                const btn = document.getElementById('nav-safety');
-                if(btn) { btn.classList.add('bg-purple-50', 'text-brandPurple'); btn.classList.remove('text-gray-600'); }
-            } else if(tabId === 'games') {
-                const btn = document.getElementById('nav-games');
-                if(btn) { btn.classList.add('bg-pink-50', 'text-brandPink'); btn.classList.remove('text-gray-600'); }
-            }
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-purple-100 text-brandPurple rounded-2xl flex items-center justify-center text-2xl font-bold">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold font-title text-brandDark">Bullying Escolar</h3>
+              <span class="text-sm text-purple-600 font-semibold">Acontece no dia a dia presencial</span>
+            </div>
+          </div>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Bullying ocorre quando alguém sofre agressões físicas ou verbais repetidas vezes, de forma intencional, por parte de colegas. Exemplos: xingamentos, apelidos maldosos, exclusão proposital de brincadeiras e empurrões.
+          </p>
+        </div>
+        <div class="bg-purple-50 p-4 rounded-2xl border border-purple-100 text-sm text-purple-900">
+          <strong>Exemplo prático:</strong> Inventar um apelido chato para rir da aparência de um colega todos os dias na hora do recreio.
+        </div>
+      </div>
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-pink-100 text-brandPink rounded-2xl flex items-center justify-center text-2xl font-bold">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold font-title text-brandDark">Cyberbullying</h3>
+              <span class="text-sm text-brandPink font-semibold">Acontece através de telas e internet</span>
+            </div>
+          </div>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            É o bullying que usa a tecnologia (celulares, redes sociais, jogos online). A grande diferença é que na internet a ofensa se espalha muito rápido, atinge muitas pessoas e pode ficar gravada para sempre.
+          </p>
+        </div>
+        <div class="bg-pink-50 p-4 rounded-2xl border border-pink-100 text-sm text-pink-900">
+          <strong>Exemplo prático:</strong> Mandar mensagens ofensivas em grupos de chat ou criar perfis falsos para zombar de alguém da escola.
+        </div>
+      </div>
+    </div>
 
-        // Menu Mobile Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h3 class="text-2xl sm:text-3xl font-bold font-title">Por que isso prejudica tanto?</h3>
+        <p class="text-white/90 text-lg leading-relaxed">
+          Tanto o bullying quanto o cyberbullying machucam o coração e a autoestima. Podem deixar a criança triste, com medo de ir para a escola, isolada dos amigos e sem vontade de brincar. Cuidar uns dos outros é um dever de todos!
+        </p>
+      </div>
+    </div>
+  </section>
 
-        // Lógica do Quiz Interativo
-        const quizData = [
-            {
-                question: "Você entrou em um grupo de chat da escola e percebeu que alguns colegas estão fazendo piadas maldosas sobre a roupa de um aluno. O que você deve fazer?",
-                options: [
-                    { text: "Dar risada junto para não ficar de fora do grupo.", correct: false, feedback: "Dar risada incentiva o agressor. O melhor é não participar de brincadeiras que machucam os outros." },
-                    { text: "Não responder às ofensas, tirar print e avisar um adulto de confiança.", correct: true, feedback: "Excelente escolha! Salvar as provas e pedir ajuda a um adulto protege quem está sofrendo a agressão." },
-                    { text: "Responder xingando todo mundo com letras maiúsculas.", correct: false, feedback: "Responder com mais violência só aumenta a confusão. O ideal é manter a calma e procurar ajuda." }
-                ]
-            },
-            {
-                question: "Alguém que você não conhece na internet te mandou uma mensagem pedindo uma foto sua e o nome da sua escola. Qual é a atitude mais segura?",
-                options: [
-                    { text: "Enviar a foto e conversar, parecia ser uma pessoa simpática.", correct: false, feedback: "Nunca compartilhe fotos ou dados pessoais com desconhecidos na internet!" },
-                    { text: "Ignorar, não responder e contar imediatamente para os seus pais ou responsável.", correct: true, feedback: "Perfeito! A segurança dos seus dados pessoais e de sua escola deve vir sempre em primeiro lugar." },
-                    { text: "Ficar com medo e apagar o aplicativo sem falar nada para ninguém.", correct: false, feedback: "Apagar ajuda, mas é fundamental conversar com um adulto de confiança para que ele saiba o que aconteceu." }
-                ]
-            },
-            {
-                question: "Um colega novo na turma tem um jeito diferente de falar e alguns alunos estão rindo dele no recreio. O que você pode fazer?",
-                options: [
-                    { text: "Ficar em silêncio e fingir que não vi nada.", correct: false, feedback: "O silêncio pode fazer o agressor achar que tudo bem. Mostrar apoio a quem precisa faz toda a diferença." },
-                    { text: "Convidar o colega para brincar com você e mostrar que ele é bem-vindo.", correct: true, feedback: "Maravilhoso! A empatia e o respeito às diferenças são as maiores armas contra o bullying." },
-                    { text: "Falar dos defeitos dele também para se enturmar.", correct: false, feedback: "Isso é bullying e machuca os sentimentos de outra pessoa. Seja sempre gentil!" }
-                ]
-            }
-        ];
+  <section id="tab-safety" class="tab-content hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <span class="text-brandGreen font-bold tracking-wider uppercase text-sm">Guia do Super Protetor</span>
+      <h2 class="text-3xl sm:text-5xl font-bold font-title text-brandDark">Zona de Segurança</h2>
+      <p class="text-gray-600 text-lg">Aprenda o passo a passo de como agir caso você ou um amigo passem por alguma situação de violência virtual.</p>
+    </div>
 
-        let currentQuestionIndex = 0;
-        let score = 0;
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-green-100 text-brandGreen rounded-2xl flex items-center justify-center text-xl font-bold mb-4">1</div>
+          <h3 class="text-xl font-bold font-title text-brandDark mb-2">Não Responda</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Se alguém te mandar uma mensagem ruim ou ofensiva, não revide e não responda com xingamentos. Isso evita alimentar a confusão.
+          </p>
+        </div>
+        <div class="mt-6 text-brandGreen text-xs font-semibold flex items-center gap-1">
+          <i class="fa-solid fa-circle-check"></i> Regra de Ouro
+        </div>
+      </div>
 
-        function loadQuizQuestion() {
-            const q = quizData[currentQuestionIndex];
-            document.getElementById('quiz-progress').innerText = `Pergunta ${currentQuestionIndex + 1} de ${quizData.length}`;
-            document.getElementById('quiz-score').innerText = `Pontos: ${score}`;
-            document.getElementById('quiz-question-text').innerText = q.question;
+      <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-blue-100 text-brandBlue rounded-2xl flex items-center justify-center text-xl font-bold mb-4">2</div>
+          <h3 class="text-xl font-bold font-title text-brandDark mb-2">Salve as Provas</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Tire um print (captura de tela) da mensagem ofensiva ou peça para um adulto ajudar a guardar o registro caso seja necessário relatar.
+          </p>
+        </div>
+        <div class="mt-6 text-brandBlue text-xs font-semibold flex items-center gap-1">
+          <i class="fa-solid fa-circle-check"></i> Importante
+        </div>
+      </div>
 
-            const optionsBox = document.getElementById('quiz-options');
-            optionsBox.innerHTML = '';
-            document.getElementById('quiz-feedback').classList.add('hidden');
-            document.getElementById('quiz-question-box').classList.remove('hidden');
+      <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">3</div>
+          <h3 class="text-xl font-bold font-title text-brandDark mb-2">Bloqueie & Denuncie</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Use os recursos do aplicativo ou jogo para bloquear a pessoa agressora e use o botão de denúncia da plataforma.
+          </p>
+        </div>
+        <div class="mt-6 text-yellow-600 text-xs font-semibold flex items-center gap-1">
+          <i class="fa-solid fa-circle-check"></i> Ação Rápida
+        </div>
+      </div>
 
-            q.options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = "w-full text-left p-4 rounded-2xl border-2 border-gray-100 hover:border-brandPurple hover:bg-purple-50 transition font-medium text-gray-700 flex items-center justify-between";
-                btn.innerHTML = `<span>${opt.text}</span> <i class="fa-solid fa-chevron-right text-gray-400"></i>`;
-                btn.onclick = () => selectQuizOption(opt.correct, opt.feedback);
-                optionsBox.appendChild(btn);
-            });
-        }
+      <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-pink-100 text-brandPink rounded-2xl flex items-center justify-center text-xl font-bold mb-4">4</div>
+          <h3 class="text-xl font-bold font-title text-brandDark mb-2">Conte a um Adulto</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Procure imediatamente seus pais, professores ou um adulto de confiança. Você não precisa passar por isso sozinho(a)!
+          </p>
+        </div>
+        <div class="mt-6 text-brandPink text-xs font-semibold flex items-center gap-1">
+          <i class="fa-solid fa-circle-check"></i> Apoio Seguro
+        </div>
+      </div>
+    </div>
+  </section>
 
-        function selectQuizOption(isCorrect, feedbackText) {
-            document.getElementById('quiz-question-box').classList.add('hidden');
-            const feedbackBox = document.getElementById('quiz-feedback');
-            feedbackBox.classList.remove('hidden');
+  <section id="tab-games" class="tab-content hidden py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8">
+    <div class="text-center space-y-4">
+      <span class="text-brandPink font-bold tracking-wider uppercase text-sm">Zona de Desafios</span>
+      <h2 class="text-3xl sm:text-5xl font-bold font-title text-brandDark">O que você faria nessa situação?</h2>
+      <p class="text-gray-600 text-lg">Teste suas escolhas em cenários do dia a dia e descubra como ser um verdadeiro herói digital!</p>
+    </div>
 
-            const title = document.getElementById('feedback-title');
-            const desc = document.getElementById('feedback-desc');
+    <div id="quiz-container" class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border border-gray-100">
+      <div class="flex justify-between items-center mb-6 border-b pb-4">
+        <span id="quiz-progress" class="font-bold text-brandPurple">Pergunta 1 de 5</span>
+        <span id="quiz-score" class="font-bold text-brandGreen">Pontos: 0</span>
+      </div>
 
-            if(isCorrect) {
-                score += 10;
-                title.innerHTML = '<span class="text-brandGreen"><i class="fa-solid fa-circle-check mr-2"></i> Muito bem! Escolha correta!</span>';
-            } else {
-                title.innerHTML = '<span class="text-brandPink"><i class="fa-solid fa-circle-xmark mr-2"></i> Quase lá! Vamos refletir sobre isso?</span>';
-            }
-            desc.innerText = feedbackText;
-            document.getElementById('quiz-score').innerText = `Pontos: ${score}`;
-        }
+      <div id="quiz-question-box" class="space-y-6">
+        <h3 id="quiz-question-text" class="text-xl sm:text-2xl font-bold font-title text-brandDark">
+          Carregando pergunta...
+        </h3>
+        <div id="quiz-options" class="grid grid-cols-1 gap-4">
+        </div>
+      </div>
 
-        function nextQuizQuestion() {
-            currentQuestionIndex++;
-            if(currentQuestionIndex < quizData.length) {
-                loadQuizQuestion();
-            } else {
-                document.getElementById('quiz-container').classList.add('hidden');
-                document.getElementById('quiz-finished').classList.remove('hidden');
-                document.getElementById('final-score-text').innerText = `Você concluiu os desafios com ${score} pontos e mostrou que entende tudo sobre respeito e segurança na internet!`;
-            }
-        }
+      <div id="quiz-feedback" class="hidden mt-6 p-6 rounded-2xl bg-gray-50 border space-y-4">
+        <h4 id="feedback-title" class="text-xl font-bold font-title"></h4>
+        <p id="feedback-desc" class="text-gray-600"></p>
+        <button onclick="nextQuizQuestion()" class="px-6 py-3 bg-brandPurple text-white font-bold rounded-xl hover:bg-purple-700 transition">
+          Próxima Situação <i class="fa-solid fa-arrow-right ml-2"></i>
+        </button>
+      </div>
+    </div>
 
-        function restartQuiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            document.getElementById('quiz-finished').classList.add('hidden');
-            document.getElementById('quiz-container').classList.remove('hidden');
-            loadQuizQuestion();
-        }
+    <div id="quiz-finished" class="hidden bg-white p-8 sm:p-12 rounded-3xl shadow-lg text-center space-y-6">
+      <div class="w-20 h-20 bg-green-100 text-brandGreen rounded-full flex items-center justify-center text-4xl mx-auto">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h3 class="text-3xl font-bold font-title text-brandDark">Parabéns, Super Herói!</h3>
+      <p id="final-score-text" class="text-lg text-gray-600">Você concluiu os desafios com sucesso e mostrou que entende tudo sobre respeito e segurança na internet!</p>
+      <button onclick="restartQuiz()" class="px-8 py-4 bg-brandPink text-white font-bold font-title rounded-2xl shadow-md hover:bg-pink-600 transition">
+        Jogar Novamente <i class="fa-solid fa-rotate-right ml-2"></i>
+      </button>
+    </div>
+  </section>
 
-        // Inicializar quiz ao carregar a página
-        window.onload = function() {
-            loadQuizQuestion();
-        };
-    </script>
+</main>
+
+<footer class="bg-white border-t mt-16 py-8 text-center text-gray-500 text-sm">
+  <div class="max-w-7xl mx-auto px-4 space-y-3">
+    <p class="font-title text-brandDark font-semibold text-base">Heróis da Web — Educação, Empatia & Segurança Digital</p>
+    <p>Projeto desenvolvido para conscientização de crianças, famílias e escolas contra o bullying e cyberbullying.</p>
+    <p class="text-xs text-gray-400">© 2026 Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  function switchTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(t => t.classList.add('hidden'));
+
+    document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => {
+      btn.classList.remove('bg-purple-50', 'text-brandPurple');
+      btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+    });
+
+    if(tabId === 'home') {
+      const btn = document.getElementById('nav-home');
+      if(btn) { btn.classList.add('bg-purple-50', 'text-brandPurple'); btn.classList.remove('text-gray-600'); }
+    } else if(tabId === 'about') {
+      const btn = document.getElementById('nav-about');
+      if(btn) { btn.classList.add('bg-purple-50', 'text-brandPurple'); btn.classList.remove('text-gray-600'); }
+    } else if(tabId === 'safety') {
+      const btn = document.getElementById('nav-safety');
+      if(btn) { btn.classList.add('bg-purple-50', 'text-brandPurple'); btn.classList.remove('text-gray-600'); }
+    } else if(tabId === 'games') {
+      const btn = document.getElementById('nav-games');
+      if(btn) { btn.classList.add('bg-pink-50', 'text-brandPink'); btn.classList.remove('text-gray-600'); }
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  }
+
+  const quizData = [
+    {
+      question: "Um colega criou um grupo no WhatsApp só para rir e mandar figurinhas zoando a aparência de outro aluno da sala. O que você deve fazer?",
+      options: [
+        { text: "Não compartilhar, defender o colega ou sair do grupo, e avisar um adulto ou professor.", isCorrect: true, feedback: "Muito bem! Ter empatia, não espalhar ofensas e pedir ajuda a um adulto de confiança é atitude de um verdadeiro Herói da Web." },
+        { text: "Rir junto e compartilhar as figurinhas para não ficar de fora.", isCorrect: false, feedback: "Cuidado! Participar e compartilhar ofensas também é praticar cyberbullying e machuca muito o colega." },
+        { text: "Ficar quieto e fingir que nada está acontecendo.", isCorrect: false, feedback: "Ficar em silêncio deixa o agressor continuar. Pedir ajuda a um adulto de confiança ajuda a proteger o colega." }
+      ]
+    },
+    {
+      question: "Você está jogando online e alguém que você não conhece pede seu endereço, o nome da sua escola ou uma foto sua em troca de moedas no jogo. Qual é a atitude segura?",
+      options: [
+        { text: "Passar só o nome da escola para ganhar as moedas.", isCorrect: false, feedback: "Nunca passe nenhum dado pessoal! Informações como escola, endereço ou fotos colocam sua segurança em risco." },
+        { text: "Mandar uma foto antiga para enganar a pessoa.", isCorrect: false, feedback: "Mesmo uma foto antiga não deve ser enviada para desconhecidos. O seguro é bloquear e avisar um adulto." },
+        { text: "Recusar na hora, bloquear o usuário e contar para seus pais ou responsáveis.", isCorrect: true, feedback: "Perfeito! Na internet, nunca compartilhamos dados pessoais ou fotos com estranhos. Bloquear e avisar os pais é sempre a escolha certa." }
+      ]
+    },
+    {
+      question: "Você entrou em um grupo de chat da escola e percebeu que alguns colegas estão fazendo piadas maldosas sobre a roupa de um aluno. O que você deve fazer?",
+      options: [
+        { text: "Dar risada junto para não ficar de fora do grupo.", isCorrect: false, feedback: "Dar risada incentiva o agressor. O melhor é não participar de brincadeiras que machucam os outros." },
+        { text: "Não responder às ofensas, tirar print e avisar um adulto de confiança.", isCorrect: true, feedback: "Excelente escolha! Salvar as provas e pedir ajuda a um adulto protege quem está sofrendo a agressão." },
+        { text: "Responder xingando todo mundo com letras maiúsculas.", isCorrect: false, feedback: "Responder com mais violência só aumenta a confusão. O ideal é manter a calma e procurar ajuda." }
+      ]
+    },
+    {
+      question: "Alguém que você não conhece na internet te mandou uma mensagem pedindo uma foto sua e o nome da sua escola. Qual é a atitude mais segura?",
+      options: [
+        { text: "Ignorar, não responder e contar imediatamente para os seus pais ou responsável.", isCorrect: true, feedback: "Perfeito! A segurança dos seus dados pessoais e de sua escola deve vir sempre em primeiro lugar." },
+        { text: "Enviar a foto e conversar, parecia ser uma pessoa simpática.", isCorrect: false, feedback: "Nunca compartilhe fotos ou dados pessoais com desconhecidos na internet!" },
+        { text: "Ficar com medo e apagar o aplicativo sem falar nada para ninguém.", isCorrect: false, feedback: "Apagar ajuda, mas é fundamental conversar com um adulto de confiança para que ele saiba o que aconteceu." }
+      ]
+    },
+    {
+      question: "Um colega novo na turma tem um jeito diferente de falar e alguns alunos estão rindo dele no recreio. O que você pode fazer?",
+      options: [
+        { text: "Ficar em silêncio e fingir que não vi nada.", isCorrect: false, feedback: "O silêncio pode fazer o agressor achar que tudo bem. Mostrar apoio a quem precisa faz toda a diferença." },
+        { text: "Falar dos defeitos dele também para se enturmar.", isCorrect: false, feedback: "Isso é bullying e machuca os sentimentos de outra pessoa. Seja sempre gentil!" },
+        { text: "Convidar o colega para brincar com você e mostrar que ele é bem-vindo.", isCorrect: true, feedback: "Maravilhoso! A empatia e o respeito às diferenças são as maiores armas contra o bullying." }
+      ]
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  function loadQuizQuestion() {
+    const q = quizData[currentQuestionIndex];
+    document.getElementById('quiz-progress').innerText = `Pergunta ${currentQuestionIndex + 1} de ${quizData.length}`;
+    document.getElementById('quiz-score').innerText = `Pontos: ${score}`;
+    document.getElementById('quiz-question-text').innerText = q.question;
+
+    const optionsBox = document.getElementById('quiz-options');
+    optionsBox.innerHTML = '';
+    document.getElementById('quiz-feedback').classList.add('hidden');
+    document.getElementById('quiz-question-box').classList.remove('hidden');
+
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = "w-full text-left p-4 rounded-2xl border-2 border-gray-100 hover:border-brandPurple hover:bg-purple-50 transition font-medium text-gray-700 flex items-center justify-between";
+      btn.innerHTML = `<span>${opt.text}</span> <i class="fa-solid fa-chevron-right text-gray-400"></i>`;
+      btn.onclick = () => selectQuizOption(opt.isCorrect, opt.feedback);
+      optionsBox.appendChild(btn);
+    });
+  }
+
+  function selectQuizOption(isCorrect, feedbackText) {
+    document.getElementById('quiz-question-box').classList.add('hidden');
+    const feedbackBox = document.getElementById('quiz-feedback');
+    feedbackBox.classList.remove('hidden');
+
+    const title = document.getElementById('feedback-title');
+    const desc = document.getElementById('feedback-desc');
+
+    if(isCorrect) {
+      score += 10;
+      title.innerHTML = '<span class="text-brandGreen"><i class="fa-solid fa-circle-check mr-2"></i> Muito bem! Escolha correta!</span>';
+    } else {
+      title.innerHTML = '<span class="text-brandPink"><i class="fa-solid fa-circle-xmark mr-2"></i> Quase lá! Vamos refletir sobre isso?</span>';
+    }
+    desc.innerText = feedbackText;
+    document.getElementById('quiz-score').innerText = `Pontos: ${score}`;
+  }
+
+  function nextQuizQuestion() {
+    currentQuestionIndex++;
+    if(currentQuestionIndex < quizData.length) {
+      loadQuizQuestion();
+    } else {
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('quiz-finished').classList.remove('hidden');
+      document.getElementById('final-score-text').innerText = `Você concluiu os desafios com ${score} pontos e mostrou que entende tudo sobre respeito e segurança na internet!`;
+    }
+  }
+
+  function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById('quiz-finished').classList.add('hidden');
+    document.getElementById('quiz-container').classList.remove('hidden');
+    loadQuizQuestion();
+  }
+
+  window.onload = function() {
+    loadQuizQuestion();
+  };
+</script>
 </body>
 </html>
