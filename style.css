@@ -1,0 +1,19 @@
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
+  color: #2B2D42;
+}
+h1, h2, h3, .font-title {
+  font-family: 'Fredoka', sans-serif;
+}
+.blob-bg {
+  background: linear-gradient(135deg, #FFD166 0%, #FF6584 100%);
+}
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.1);
+}
