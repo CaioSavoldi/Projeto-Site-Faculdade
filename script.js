@@ -72,6 +72,30 @@ const quizData = [
       { text: "Falar dos defeitos dele também para se enturmar.", isCorrect: false, feedback: "Isso é bullying e machuca os sentimentos de outra pessoa. Seja sempre gentil!" },
       { text: "Convidar o colega para brincar com você e mostrar que ele é bem-vindo.", isCorrect: true, feedback: "Maravilhoso! A empatia e o respeito às diferenças são as maiores armas contra o bullying." }
     ]
+  },
+  {
+    question: "Seu melhor amigo pede a senha do seu jogo e das suas redes sociais, dizendo que é 'prova de amizade'. O que você faz?",
+    options: [
+      { text: "Passar a senha, afinal ele é seu melhor amigo.", isCorrect: false, feedback: "Senha é segredo só seu! Mesmo amigos podem usar sua conta sem querer causar problemas ou até se chatear com você depois." },
+      { text: "Explicar com educação que senha não se compartilha e que amizade de verdade respeita isso.", isCorrect: true, feedback: "Muito bem! Senhas só devem ser divididas com seus pais ou responsáveis. Um bom amigo entende." },
+      { text: "Passar só a senha do jogo, que parece menos importante.", isCorrect: false, feedback: "Cuidado! Qualquer senha pode ser usada para fazer coisas em seu nome, e muita gente usa a mesma senha em vários lugares." }
+    ]
+  },
+  {
+    question: "Chegou no seu celular um vídeo de um colega passando vergonha, e todo mundo está repassando para rir. O que você deve fazer?",
+    options: [
+      { text: "Repassar só para uns poucos amigos, assim não espalha muito.", isCorrect: false, feedback: "Cada compartilhamento aumenta o sofrimento de quem aparece no vídeo. Na internet, 'só uns poucos' vira muitos rapidamente." },
+      { text: "Mandar mensagem no grupo dizendo que o vídeo é engraçado.", isCorrect: false, feedback: "Incentivar o vídeo também é participar do cyberbullying, mesmo sem ter sido você quem gravou." },
+      { text: "Não repassar, apagar o vídeo e contar para um adulto de confiança.", isCorrect: true, feedback: "Excelente! Quebrar a corrente de compartilhamento protege o colega, e o adulto pode ajudar a denunciar e remover o vídeo." }
+    ]
+  },
+  {
+    question: "Um perfil falso começou a mandar mensagens maldosas para você e você está com vergonha de contar para alguém. O que é melhor fazer?",
+    options: [
+      { text: "Não responder, tirar print, bloquear o perfil e contar para um adulto de confiança, mesmo com vergonha.", isCorrect: true, feedback: "Muito corajoso! Ter vergonha é normal, mas o erro nunca é seu. Contar para um adulto é o primeiro passo para resolver." },
+      { text: "Guardar segredo e torcer para a pessoa parar sozinha.", isCorrect: false, feedback: "Guardar sozinho(a) costuma piorar a tristeza. Um adulto de confiança pode te ajudar de verdade." },
+      { text: "Criar um perfil falso também para se vingar.", isCorrect: false, feedback: "Revidar do mesmo jeito só aumenta o problema e pode te colocar em encrenca. O caminho seguro é pedir ajuda." }
+    ]
   }
 ];
 
